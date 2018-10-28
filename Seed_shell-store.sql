@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS bamazon;
+DROP DATABASE IF EXISTS shell_storeDB;
 
-CREATE DATABASE bamazon;
+CREATE DATABASE shell_storeDB;
 
-USE bamazon;
+USE shell_storeDB;
 
 CREATE TABLE products (
     item_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -19,25 +19,25 @@ INSERT INTO products (product_name, department_name, price, stock_quantity)
 VALUES ("Bash Shell", "Software", 15.99, 100);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("C Shell", "Software", 20, 5.00);
+VALUES ("C Shell", "Software", 20.00, 5);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("Z Shell", "Software", 7, 10.99);
+VALUES ("Z Shell", "Software", 7.99, 10);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("CMD.EXE", "Software", 30, 5.00);
+VALUES ("CMD.EXE", "Software", 30.00, 5);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("COMMAND.COM", "Software", 10, 20.00);
+VALUES ("COMMAND.COM", "Software", 10.00, 20);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("4DOS", "Software", 2, 34.99);
+VALUES ("4DOS", "Software", 34.99, 2);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("Windows PowerShell", "Software", 500, 150.00);
+VALUES ("Windows PowerShell", "Software", 500.00, 150);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("Hamilton C Shell", "Software", 5, 500.00);
+VALUES ("Hamilton C Shell", "Software", 5.00, 500);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("Atari TOS Shell", "Software", 1, 1000.00);
+VALUES ("Atari TOS Shell", "Software", 1000.00, 1);
