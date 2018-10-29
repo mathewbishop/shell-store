@@ -15,8 +15,11 @@ const connection = mysql.createConnection({
     database: "shell_storeDB"
 });
 
-
-
+const makeConnection = () => {
+        connection.connect(err => {
+        if (err) throw err;
+    })
+}
 //===========================================================
 // Display all products
 //===========================================================
@@ -28,7 +31,7 @@ const displayProducts = () => {
             console.log(res);
         }
     )
-    connection.end();
+
 }
 
 //===========================================================
@@ -37,24 +40,48 @@ const displayProducts = () => {
 const initialPrompt = () => {
     inquirer.prompt([
         {
+            type: 'confirm',
+            name: 'beginShopping',
+            message: 'Would you like to make a purchase?'
+        },
+        {
             type: 'input',
             name: 'productID',
-            message: 'Please enter the ID # of the product you want to purchase: '
+            message: 'Please enter the ID # of the product you want to purchase: ',
+            when: answers => { return answers.beginShopping === true; }
         },
         {
             type: 'input',
             name: 'quantityDesired',
-            message: 'Please enter the quantity you wish to purchase: '
+            message: 'Please enter the quantity you wish to purchase: ',
+            when: answers => { return answers.beginShopping === true; }
         }
-    ]).then(answers => {
-        let productSelection = answers.productID;
-        let quantity = answers.quantityDesired;
-        console.log(productSelection);
+    ])
+    .then(answers => {
+        switch (answers.beginShopping) {
+            case true:
+            let productSelection = answers.productID;
+            let quantity = answers.quantityDesired;
+                connection.query(
+                `UPDATE products SET stock_quantity = stock_quantity - ${quantity} WHERE ?`,
+                [
+                    {
+                        item_id: productSelection
+                    }
+                ]
+            )
+            connection.end();
+            break;
+
+            case false:
+            connection.end();
+            break;
+        }
         
     })
 } 
 
 
-
+makeConnection();
 displayProducts();
-setTimeout(initialPrompt, 1000);
+setTimeout(initialPrompt, 500);
