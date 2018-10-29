@@ -84,4 +84,4 @@ const initialPrompt = () => {
 
 makeConnection();
 displayProducts();
-setTimeout(initialPrompt, 500);
+setTimeout(initialPrompt, 100);
