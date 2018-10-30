@@ -36,9 +36,16 @@ const displayProducts = () => {
     "SELECT * FROM products",
         (err, res) => {
             if (err) throw err;
-            inventoryTable.push(
-                { Item_Number: res[0].item_id }
-            )
+            res.forEach(item => {
+                inventoryTable.push(
+                    { Item_Number: item.item_id, },
+                    { Product: item.product_name }, 
+                    { Department: item.department_name}, 
+                    {Price: item.price}, 
+                    { StockQty: item.stock_quantity }
+                )    
+            });
+            
             
             console.log(inventoryTable.toString());
         }
