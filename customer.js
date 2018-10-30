@@ -67,8 +67,19 @@ const initialPrompt = () => {
                     {
                         item_id: productSelection
                     }
-                ]
+                ],
+                (err, res) => {
+                    if (err) throw err;
+                    if (res.changedRows === 0) {
+                        console.log("Sorry, that item is out of stock.");
+                    } else {
+                        console.log("Thank you for your purchase.");
+                    }
+                    
+                    
+                }
             )
+            
             connection.end();
             break;
 
