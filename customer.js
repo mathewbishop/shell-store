@@ -79,11 +79,12 @@ const initialPrompt = () => {
                     }
                 ],
                 (err, res) => {
+                    let orderCost = unitCost * quantity;
                     if (err) throw err;
                     if (res.changedRows === 0) {
                         console.log("Sorry, that item is out of stock.");
                     } else {
-                        console.log(`You total today is ${unitCost}`);
+                        console.log(`You total today is ${orderCost}`);
                     }
                     
                     
