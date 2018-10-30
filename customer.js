@@ -20,6 +20,8 @@ const makeConnection = () => {
         if (err) throw err;
     })
 }
+
+let unitCost;
 //===========================================================
 // Display all products
 //===========================================================
@@ -28,6 +30,7 @@ const displayProducts = () => {
     "SELECT * FROM products",
         (err, res) => {
             if (err) throw err;
+
             console.log(res);
         }
     )
@@ -62,6 +65,13 @@ const initialPrompt = () => {
             let productSelection = answers.productID;
             let quantity = answers.quantityDesired;
                 connection.query(
+                    `SELECT * FROM products WHERE item_id=${productSelection}`,
+                    (err, res) => {
+                        if (err) throw err;
+                        unitCost = res[0].price;
+                    }
+                )
+                connection.query(
                 `UPDATE products SET stock_quantity = CASE WHEN stock_quantity > 0 THEN stock_quantity - ${quantity} ELSE stock_quantity END WHERE ?`,
                 [
                     {
@@ -73,7 +83,7 @@ const initialPrompt = () => {
                     if (res.changedRows === 0) {
                         console.log("Sorry, that item is out of stock.");
                     } else {
-                        console.log("Thank you for your purchase.");
+                        console.log(`You total today is ${unitCost}`);
                     }
                     
                     
