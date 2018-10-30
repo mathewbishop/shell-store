@@ -84,7 +84,7 @@ const initialPrompt = () => {
                     if (res.changedRows === 0) {
                         console.log("Sorry, that item is out of stock.");
                     } else {
-                        console.log(`You total today is ${orderCost}`);
+                        console.log(`You total today is ${orderCost}. Thank you for shopping.`);
                     }
                     
                     
@@ -102,7 +102,9 @@ const initialPrompt = () => {
     })
 } 
 
-
+//===========================================================
+// Start app. connect and init function calls
+//===========================================================
 makeConnection();
 displayProducts();
 setTimeout(initialPrompt, 100);
