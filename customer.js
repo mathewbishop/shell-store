@@ -3,6 +3,12 @@ const mysql = require("mysql");
 const inquirer = require("inquirer");
 const fs = require("fs");
 const Table = require("cli-table");
+const chalk = require("chalk");
+
+//===========================================================
+// Table construct
+//===========================================================
+let inventoryTable = new Table();
 
 //===========================================================
 // Connection info for the DB
@@ -30,8 +36,11 @@ const displayProducts = () => {
     "SELECT * FROM products",
         (err, res) => {
             if (err) throw err;
-
-            console.log(res);
+            inventoryTable.push(
+                { Item_Number: res[0].item_id }
+            )
+            
+            console.log(inventoryTable.toString());
         }
     )
 }
