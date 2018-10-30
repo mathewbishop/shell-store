@@ -31,7 +31,6 @@ const displayProducts = () => {
             console.log(res);
         }
     )
-
 }
 
 //===========================================================
@@ -63,7 +62,7 @@ const initialPrompt = () => {
             let productSelection = answers.productID;
             let quantity = answers.quantityDesired;
                 connection.query(
-                `UPDATE products SET stock_quantity = stock_quantity - ${quantity} WHERE ?`,
+                `UPDATE products SET stock_quantity = CASE WHEN stock_quantity > 0 THEN stock_quantity - ${quantity} ELSE stock_quantity END WHERE ?`,
                 [
                     {
                         item_id: productSelection
