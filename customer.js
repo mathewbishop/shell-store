@@ -95,15 +95,33 @@ const initialPrompt = () => {
                     if (err) throw err;
                     if (res.changedRows === 0) {
                         console.log(chalk.red("\nSorry, that item is out of stock.\n"));
+                        inquirer.prompt([
+                            {
+                                type: 'confirm',
+                                name: 'startAgain',
+                                message: 'Would you like to continue shopping?'
+                            }
+                        ]).then(answers => {
+                            switch (answers.startAgain) {
+                                case true:
+                                initialPrompt();
+                                break;
+
+                                case false:
+                                connection.end();
+                                break;
+                            }
+                        })
                     } else {
                         console.log(chalk.green(`\nYou total today is ${orderCost} dollars. Thank you for shopping.\n`));
+                        connection.end();
                     }
                     
                     
                 }
             )
             
-            connection.end();
+
             break;
 
             case false:
