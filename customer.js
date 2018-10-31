@@ -94,9 +94,9 @@ const initialPrompt = () => {
                     let orderCost = unitCost * quantity;
                     if (err) throw err;
                     if (res.changedRows === 0) {
-                        console.log("Sorry, that item is out of stock.");
+                        console.log(chalk.red("\nSorry, that item is out of stock.\n"));
                     } else {
-                        console.log(`You total today is ${orderCost}. Thank you for shopping.`);
+                        console.log(chalk.green(`\nYou total today is ${orderCost} dollars. Thank you for shopping.\n`));
                     }
                     
                     
