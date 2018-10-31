@@ -8,7 +8,7 @@ const chalk = require("chalk");
 //===========================================================
 // Table construct
 //===========================================================
-let inventoryTable = new Table();
+let inventoryTable = new Table({ head: ["", chalk.cyan("ID"), chalk.cyan("Product"), chalk.cyan("Department"), chalk.cyan("Price"), chalk.cyan("StockQty")]});
 
 //===========================================================
 // Connection info for the DB
@@ -38,16 +38,12 @@ const displayProducts = () => {
             if (err) throw err;
             res.forEach(item => {
                 inventoryTable.push(
-                    { Item_Number: item.item_id, },
-                    { Product: item.product_name }, 
-                    { Department: item.department_name}, 
-                    {Price: item.price}, 
-                    { StockQty: item.stock_quantity }
+                     { "": [item.item_id, item.product_name, item.department_name, item.price, item.stock_quantity] }
                 )    
             });
             
             
-            console.log(inventoryTable.toString());
+            console.log(chalk.white(inventoryTable.toString()));
         }
     )
 }
