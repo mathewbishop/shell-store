@@ -55,6 +55,37 @@ const viewLowInv = () => {
             }
         )
 }
+//===========================================================
+// Replenish Inv
+//===========================================================
+// select item number
+// select how many to replenish
+const replenishInv = () => {
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'selectItem',
+            message: 'Please enter the item # of item to replenish'
+        },
+        {
+            type: 'input',
+            name: 'addQty',
+            message: 'Please enter the Qty to add'
+        }
+    ])
+    .then(answers => {
+        let item = answers.selectItem;
+        let qty = answers.addQty;
+        connection.query(
+            `UPDATE products SET stock_quantity=${qty} WHERE item_id=${item}`,
+            (err) => {
+                if (err) throw err;
+                console.log("Stock Quantity updated successfully.");
+            }
+        )
+    })
+}
+
 
 //===========================================================
 // Initial Prompt
@@ -71,15 +102,15 @@ const initialPrompt = () => {
     .then(answers => {
         switch (answers.initPrompt) {
             case 'View Products':
-            
+            displayProducts();
             break;
 
             case 'View Low Inventory':
-
+            viewLowInv();
             break;
 
             case 'Replenish Inventory':
-
+            replenishInv();
             break;
 
             case 'Add New Product':
@@ -92,3 +123,5 @@ const initialPrompt = () => {
         }
     });
 }
+
+initialPrompt();
