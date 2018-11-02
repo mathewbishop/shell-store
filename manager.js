@@ -68,7 +68,7 @@ const replenishInv = () => {
         let item = answers.selectItem;
         let qty = answers.addQty;
         connection.query(
-            `UPDATE products SET stock_quantity=${qty} WHERE item_id=${item}`,
+            `UPDATE products SET stock_quantity = stock_quantity + ${qty} WHERE item_id=${item}`,
             (err) => {
                 if (err) throw err;
                 console.log("Stock Quantity updated successfully.");
