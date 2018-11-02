@@ -4,6 +4,7 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const Table = require("cli-table");
 const chalk = require("chalk");
+const questions = require("./questions");
 
 //===========================================================
 // Table construct
@@ -63,18 +64,7 @@ const viewLowInv = () => {
 // select item number
 // select how many to replenish
 const replenishInv = () => {
-    inquirer.prompt([
-        {
-            type: 'input',
-            name: 'selectItem',
-            message: 'Please enter the item # of item to replenish'
-        },
-        {
-            type: 'input',
-            name: 'addQty',
-            message: 'Please enter the Qty to add'
-        }
-    ])
+    inquirer.prompt(questions.replenishQs)
     .then(answers => {
         let item = answers.selectItem;
         let qty = answers.addQty;
@@ -92,28 +82,7 @@ const replenishInv = () => {
 // Add Product
 //===========================================================
 const addProduct = () => {
-    inquirer.prompt([
-        {
-            type: 'input',
-            name: 'prodName',
-            message: 'Enter new product name: '
-        },
-        {
-            type: 'input',
-            name: 'deptName',
-            message: 'Enter Department for new product: '
-        },
-        {
-            type: 'input',
-            name: 'price',
-            message: 'Enter retail price for new product: '
-        },
-        {
-            type: 'input',
-            name: 'stock_quantity',
-            message: 'Enter new product quantity in stock: '
-        }
-    ])
+    inquirer.prompt(questions.addProdQs)
     .then(answers => {
         let name = answers.prodName;
         let dept = answers.deptName;
