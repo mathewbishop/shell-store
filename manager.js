@@ -1,7 +1,6 @@
 // Require packages
 const mysql = require("mysql");
 const inquirer = require("inquirer");
-const fs = require("fs");
 const Table = require("cli-table");
 const chalk = require("chalk");
 const questions = require("./questions");
