@@ -85,6 +85,53 @@ const replenishInv = () => {
         )
     })
 }
+//===========================================================
+// Add Product
+//===========================================================
+const addProduct = () => {
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'prodName',
+            message: 'Enter new product name: '
+        },
+        {
+            type: 'input',
+            name: 'deptName',
+            message: 'Enter Department for new product: '
+        },
+        {
+            type: 'input',
+            name: 'price',
+            message: 'Enter retail price for new product: '
+        },
+        {
+            type: 'input',
+            name: 'stock_quantity',
+            message: 'Enter new product quantity in stock: '
+        }
+    ])
+    .then(answers => {
+        let name = answers.prodName;
+        let dept = answers.deptName;
+        let price = answers.price;
+        let qty = answers.stock_quantity;
+        connection.query(
+            "INSERT INTO products SET ?",
+            {
+                product_name: name,
+                department_name: dept,
+                price: price,
+                stock_quantity: qty
+            },
+            (err) => {
+                if (err) throw err;
+                console.log("Product entered successfully.");
+            }
+        )
+    })
+}
+
 
 
 //===========================================================
@@ -114,7 +161,7 @@ const initialPrompt = () => {
             break;
 
             case 'Add New Product':
-
+            addProduct();
             break;
 
             case 'Quit':
