@@ -37,6 +37,7 @@ const displayProducts = () => {
             console.log(chalk.white(inventoryTable.toString()));
         }
     )
+    connection.end();
 }
 //===========================================================
 // View Low Inv
@@ -54,6 +55,7 @@ const viewLowInv = () => {
                 console.log(chalk.white(inventoryTable.toString()));
             }
         )
+        connection.end();
 }
 //===========================================================
 // Replenish Inv
@@ -81,6 +83,7 @@ const replenishInv = () => {
             (err) => {
                 if (err) throw err;
                 console.log("Stock Quantity updated successfully.");
+                connection.end();
             }
         )
     })
@@ -127,6 +130,7 @@ const addProduct = () => {
             (err) => {
                 if (err) throw err;
                 console.log("Product entered successfully.");
+                connection.end();
             }
         )
     })
@@ -171,4 +175,7 @@ const initialPrompt = () => {
     });
 }
 
+//===========================================================
+// Start App
+//===========================================================
 initialPrompt();
