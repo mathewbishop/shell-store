@@ -1,7 +1,7 @@
-// Require packages
+// Dependencies
+require("dotenv").config();
 const mysql = require("mysql");
 const inquirer = require("inquirer");
-const fs = require("fs");
 const Table = require("cli-table");
 const chalk = require("chalk");
 
@@ -14,10 +14,10 @@ let inventoryTable = new Table({ head: ["", chalk.cyan("ID"), chalk.cyan("Produc
 // Connection info for the DB
 //===========================================================
 const connection = mysql.createConnection({
-    host: "localhost",
-    port: 3306,
-    user: "root",
-    password: "penguin237",
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    user: process.env.DB_USER,
+    password: process.env.DB_PW,
     database: "shell_storeDB"
 });
 
