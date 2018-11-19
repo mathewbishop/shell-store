@@ -61,8 +61,6 @@ const viewLowInv = () => {
 //===========================================================
 // Replenish Inv
 //===========================================================
-// select item number
-// select how many to replenish
 const replenishInv = () => {
     inquirer.prompt(questions.replenishQs)
     .then(answers => {
