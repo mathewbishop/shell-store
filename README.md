@@ -2,7 +2,7 @@
 A fictional store full of CRUD with a CLI. MySQL and Node.js
 
 ## Welcome to the Shell Store!
-From Bash Shells to PowerShells, if its about shells, we have it!
+From Bash Shells to PowerShells, if you need a shell, you've come to the right place!
 
 I built this app with Node.js and MySQL. The core function of the app is to perform CRUD operations on a MySQL database when user input is received. 
 
