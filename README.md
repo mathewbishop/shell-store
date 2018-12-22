@@ -9,7 +9,7 @@ This is a command line application based on the idea of a store. This is a ficti
 
 To run the application on your machine, clone this repository ([How to clone a repo](https://help.github.com/articles/cloning-a-repository/)). Once you have cloned the repository, navigate to the newly cloned "shell-store" directory and run ```npm install``` to install the dependencies defined in this project's *package.json* file. 
 
-There are two files you can run:
+**There are two files you can run:**
 1. customer.js
 2. manager.js
 
@@ -41,3 +41,8 @@ You take on the role of manager at the shell store.
 ![demo-of-program](demo-imgs/manager3.png)
 ![demo-of-program](demo-imgs/manager4.png)
 ![demo-of-program](demo-imgs/manager5.png)
+
+
+## Tech Stack
+1. Node.js
+2. MySQL
