@@ -5,9 +5,9 @@ A fictional store full of CRUD with a CLI. MySQL and Node.js
 This is a command line application based on the idea of a store. This is a fictional store, the app is just for fun. 
 
 ## How to Use
-**Note: To run this application you will need to have *npm* installed ([instructions](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)). Additionally, to avoid complications, it is reccommended that you are using *bash* as your shell. [Install Bash for Windows](https://www.windowscentral.com/how-install-bash-shell-command-line-windows-10).**
+**Note: To run this application you will need to have *npm* installed ([How to install NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)). Additionally, to avoid complications, it is reccommended that you are using *bash* as your shell. [Install Bash for Windows](https://www.windowscentral.com/how-install-bash-shell-command-line-windows-10).**
 
-To run the application on your machine, clone this repository ([instructions](https://help.github.com/articles/cloning-a-repository/)). Once you have cloned the repository, navigate to the newly cloned "shell-store" directory and run ```npm install``` to install the dependencies defined in this project's *package.json* file. 
+To run the application on your machine, clone this repository ([How to clone a repo](https://help.github.com/articles/cloning-a-repository/)). Once you have cloned the repository, navigate to the newly cloned "shell-store" directory and run ```npm install``` to install the dependencies defined in this project's *package.json* file. 
 
 There are two files you can run:
 1. customer.js
