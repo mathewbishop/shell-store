@@ -1,10 +1,13 @@
 # shell-store
 A fictional store full of CRUD with a CLI. MySQL and Node.js
 
-## Welcome to the Shell Store!
-From Bash Shells to PowerShells, if you need a shell, you've come to the right place!
+## Description
+This is a command line application based on the idea of a store. This is a fictional store, the app is just for fun. 
 
-I built this app with Node.js and MySQL. The core function of the app is to perform CRUD operations on a MySQL database when user input is received. 
+## How to Use
+**Note: To run this application you will need to have *npm* installed ([instructions](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)). Additionally, to avoid complications, it is reccommended that you are using *bash* as your shell. [Install Bash for Windows](https://www.windowscentral.com/how-install-bash-shell-command-line-windows-10).
+
+To run the application on your machine, clone this repository ([instructions](https://help.github.com/articles/cloning-a-repository/)). Once you have cloned the repository, navigate to the newly cloned "shell-store" directory and run ```npm install``` to install the dependencies defined in this project's *package.json* file. 
 
 There are two files you can run:
 1. customer.js
@@ -13,7 +16,7 @@ There are two files you can run:
 ## customer.js 
 Run ```$ node customer.js```
 
-You taking on the role of a potential patron of the shell store (see, its an RPG too, who knew?!). 
+You take on the role of a potential patron of the shell store (see, its an RPG too, who knew?!). 
 ### Features of customer.js
 1. Displays all products at start
 2. Choose a product to buy (selecty by ID #), and choose qty to purchase.
