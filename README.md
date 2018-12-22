@@ -46,3 +46,6 @@ You take on the role of manager at the shell store.
 ## Tech Stack
 1. Node.js
 2. MySQL
+3. [inquirer](https://www.npmjs.com/package/inquirer)
+4. [cli-table](https://www.npmjs.com/package/cli-table)
+5. [chalk](https://www.npmjs.com/package/chalk)
